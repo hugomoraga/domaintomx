@@ -36,9 +36,7 @@ app.post('/consulta', async (req, res, next) => {
         if (dominio.match(regex)) {
             dns.resolveMx(dominio, (err, addresses) => {
                 if (err) { 
-                    res.render('get', {
-                        errorurl: 'Error en URL, Intente nuevamente'
-                    });
+                    res.render('error');
                 } else {
 
                 let jadd = (addresses)
@@ -51,9 +49,7 @@ app.post('/consulta', async (req, res, next) => {
         });
             
         } else {
-            res.render('get', {
-                errorurl: 'Error en URL, Intente nuevamente'
-            });
+            res.render('error');
         }
     }
 
@@ -64,5 +60,5 @@ app.post('/consulta', async (req, res, next) => {
 
 
 var server = app.listen(8200, function () {
-    console.log('Servidor ejecutandose en localhost:8000');
+    console.log('Servidor ejecutandose en localhost:8200');
 });
