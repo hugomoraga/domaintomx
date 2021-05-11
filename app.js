@@ -23,7 +23,9 @@ app.use(bodyParser.urlencoded({
      
     });  
  
-
+    app.get('/', function (req, res) {
+        res.redirect('/consulta');
+      }); 
 
 
 app.post('/consulta', async (req, res, next) => {
